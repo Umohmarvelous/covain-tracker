@@ -76,14 +76,14 @@ export default function Income() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <IncomeForm
+            {/* <IncomeForm
               onSubmit={editingIncome ? updateIncome : addIncome}
               initialData={editingIncome}
               onCancel={() => {
                 setIsFormOpen(false)
                 setEditingIncome(null)
               }}
-            />
+            /> */}
           </CardContent>
         </Card>
       )}
