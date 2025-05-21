@@ -33,7 +33,6 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <div className=" w-auto popover flex flex-row relative pr-5"
           style={{
-            // height: '145vh',
             backgroundColor: '#f4f2f3',
 
           }} >

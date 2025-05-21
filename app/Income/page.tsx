@@ -6,7 +6,6 @@ function IncomeLayout() {
 
     return (
         <>
-
             <div className=''
                 style={{
                     height: '100vh',

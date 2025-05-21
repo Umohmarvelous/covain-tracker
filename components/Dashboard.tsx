@@ -40,56 +40,9 @@ const Dashboard: React.FC<TaskProps> = () => {
   const [newTag, setNewTag] = useState<string>("");
   const [newDetailValue, setNewDetailValue] = useState<string>("");
 
-  // const handleSubmitEditTodo: FormEventHandler<HTMLFormElement> = async (e) => {
-  //   await addTodo({
-  //     id: uuidv4(),
-  //     text: newBudgetValue,
-  //     amount: newBudgetAmount,
-  //     date: newDateRecord,
-  //     icon: newIcon,
-  //     tag: newTag,
-  //     message: newDetailValue,
-  //   });
-
-
-
-
-
-  // const Dashboard = () => {
-  // const [transactions, setTransactions] = useState(initialTransactions);
-  // const [filteredTransactions, setFilteredTransactions] = useState(initialTransactions);
-
-  // useEffect(() => {
-  //   setFilteredTransactions(transactions);
-  // }, [transactions]);
-
-
+ 
   return (
-    // <div className=" xl:w-full w-auto flex flex-col-reverse xl:flex-row justify-center self-start xl:rounded-4xl rounded-4xl"
-    //   style={{
-    //     width: '80vw',
-    //     color: 'black'
-    //   }}>
-    //   <div className="bg-gray-100 xl:w-full w-auto flex flex-col xl:flex-col xl:py-7 xl:px-15 p-5 h-full xl:rounded-4xl rounded-4xl">
-    //     <span className="font-semibold text-primary pt-3 mb-2">Recent transactions</span>
-    //     <TransactionsFilters
-    //       transactions={transactions}
-    //       setTransactions={setFilteredTransactions}
-    //       originalTransactions={transactions}
-    //       setOriginalTransactions={setTransactions}
-    //     />
-
-    //     <RecentTransactions
-    //       transactions={filteredTransactions}
-    //       setTransactions={setFilteredTransactions}
-    //       setOriginalTransactions={setTransactions}
-    //     />
-    //   </div>
-    //   <Cards />
-    // </div>
     <div className="h-auto">
-      {/* <div className="flex-5 overflow-auto"> */}
-      {/* {name} */}
 
       <main className="pt-2 gap-2 flex flex-col">
         {/* Summary Cards */}
@@ -183,9 +136,6 @@ const Dashboard: React.FC<TaskProps> = () => {
             <CardHeader className="pb-2">
               <CardTitle className="text-base font-medium">Recent Expenses</CardTitle>
             </CardHeader>
-            {/* <div className="w-full h-auto">
-              <TodoList tasks={tasks} />
-            </div> */}
 
             <CardContent className="space-y-4">
               <div className="flex items-start gap-3">
@@ -294,7 +244,6 @@ const Dashboard: React.FC<TaskProps> = () => {
         </div>
       </main >
     </div >
-    // </div>
   );
 };
 

@@ -1,7 +1,6 @@
 "use client"
 
 import { useBudget } from "@/components/budget-provider"
-import DashboardHeader from "@/components/dashboard-header"
 import DashboardSummary from "@/components/dashboard-summary"
 import ExpensesByCategoryChart from "@/components/expenses-by-category-chart"
 import MonthlyBalanceChart from "@/components/monthly-balance-chart"
@@ -14,7 +13,6 @@ export default function DashboardPage() {
 
     return (
         <div className="container mx-auto py-8 px-4 min-h-screen h-screen">
-            {/* <DashboardHeader /> */}
 
             {budgets.length === 0 ? (
                 <Card className="mt-6">
