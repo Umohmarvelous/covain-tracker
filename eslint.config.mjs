@@ -21,13 +21,7 @@ const eslintConfig = [
       "no-unused-vars": "off",
       '@next/next/no-page-custom-font': 'off',
       "@typescript-eslint/no-unused-vars": "off",
-      "no-unused-vars": ["error", {
-        "vars": "all",
-        "args": "after-used",
-        "caughtErrors": "all",
-        "ignoreRestSiblings": false,
-        "reportUsedIgnorePattern": false
-      }],
+
 
 
 

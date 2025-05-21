@@ -69,7 +69,7 @@ export function BarChart() {
                         max: 4000,
                         ticks: {
                             stepSize: 500,
-                            callback: (value) => {
+                            callback: (value: any) => {
                                 if (value === 0) return "0"
                                 return `${value / 1000}k`
                             },
