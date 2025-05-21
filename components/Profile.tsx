@@ -5,7 +5,7 @@ const Profile = () => {
       {/*  */}
       <div className="flex flex-row xl:w-auto w-auto items-center justify-center  px-0">
         <div className="rounded-full bg-[#c5edfd] flex items-center justify-center">
-          <img src={'../assets/images/user.png'} className="w-[60%] m-3" />
+          <img src='../assets/images/user.png' alt='profile picture' className="w-[60%] m-3" />
         </div>
 
       </div>

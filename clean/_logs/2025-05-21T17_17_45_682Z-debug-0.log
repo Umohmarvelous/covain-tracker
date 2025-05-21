@@ -1,0 +1,19 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Users\hp\AppData\Roaming\npm\node_modules\npm\bin\npm-cli.js
+1 info using npm@11.4.0
+2 info using node@v22.11.0
+3 silly config load:file:C:\Users\hp\AppData\Roaming\npm\node_modules\npm\npmrc
+4 silly config load:file:C:\Users\hp\OneDrive - Nigerian National Petroleum Company Limited\Documents\eta_project\.npmrc
+5 silly config load:file:C:\Users\hp\.npmrc
+6 silly config load:file:C:\Users\hp\AppData\Roaming\npm\etc\npmrc
+7 verbose title npm run lint
+8 verbose argv "run" "lint"
+9 verbose logfile logs-max:10 dir:C:\Users\hp\OneDrive - Nigerian National Petroleum Company Limited\Documents\eta_project\clean\_logs\2025-05-21T17_17_45_682Z-
+10 verbose logfile C:\Users\hp\OneDrive - Nigerian National Petroleum Company Limited\Documents\eta_project\clean\_logs\2025-05-21T17_17_45_682Z-debug-0.log
+11 silly logfile start cleaning logs, removing 1 files
+12 silly logfile done cleaning log files
+13 verbose cwd C:\Users\hp\OneDrive - Nigerian National Petroleum Company Limited\Documents\eta_project
+14 verbose os Windows_NT 10.0.19045
+15 verbose node v22.11.0
+16 verbose npm  v11.4.0
+17 verbose exit 1
+18 verbose code 1
