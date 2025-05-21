@@ -1,6 +1,4 @@
 "use client"
-
-import { useState } from "react";
 import {
   MoreHorizontal,
   ArrowUpRight,
@@ -10,37 +8,14 @@ import {
   Home,
 } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-
 import { BarChart } from "@/components/bar-chart"
 import { LineChart } from "@/components/line-chart"
 import { DonutChart } from "@/components/donut-chart"
 import React from 'react'
 import '../app/globals.css'
-import { ITask } from "@/types/tasks";
-import { useRouter } from "next/navigation";
-import { getAllTodos } from "@/api";
 
 
-
-
-interface TaskProps {
-  tasks: ITask;
-
-}
-
-const Dashboard: React.FC<TaskProps> = () => {
-  const tasks = getAllTodos();
-
-  const router = useRouter();
-  const [modalOpen, setModalOpen] = useState<boolean>(false);
-  const [newBudgetValue, setNewBudgetValue] = useState<string>("");
-  const [newBudgetAmount, setNewBudgetAmount] = useState<string>("");
-  const [newDateRecord, setNewDateRecord] = useState<string>();
-  const [newIcon, setNewIcon] = useState<string>("");
-  const [newTag, setNewTag] = useState<string>("");
-  const [newDetailValue, setNewDetailValue] = useState<string>("");
-
- 
+const Dashboard = () => {
   return (
     <div className="h-auto">
 
@@ -120,7 +95,6 @@ const Dashboard: React.FC<TaskProps> = () => {
 
         {/* Charts and Tables */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Top 5 Expense Source */}
           <Card className="lg:col-span-2">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <CardTitle className="text-base font-medium">Top 5 Expense Source</CardTitle>

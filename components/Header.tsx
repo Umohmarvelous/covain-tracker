@@ -1,9 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-// import { Cog6ToothIcon } from "@heroicons/react/24/outline";
 import { Button } from "@/components/ui/button"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
     Bell,
     Search,
@@ -27,8 +24,7 @@ function Header() {
                 return 'Budget'
             case '/income':
                 return 'Income'
-            // default:
-            //     return 'Page Not Found'
+
         }
     }
 
@@ -41,17 +37,6 @@ function Header() {
                 <div className="flex items-center justify-between p-2 ">
                     <div className="flex-1"></div>
                     <div className="flex items-center gap-4">
-                        {/* <Select value={timeRange} onValueChange={setTimeRange}>
-                            <SelectTrigger className="w-[180px]">
-                                <SelectValue placeholder="Select time range" />
-                            </SelectTrigger>
-                            <SelectContent>
-                                <SelectItem value="7">Last 7 days</SelectItem>
-                                <SelectItem value="14">Last 14 days</SelectItem>
-                                <SelectItem value="30">Last 30 days</SelectItem>
-                                <SelectItem value="90">Last 90 days</SelectItem>
-                            </SelectContent>
-                        </Select> */}
                         <Button variant="ghost" size="icon">
                             <Bell className="w-5 h-5" />
                         </Button>

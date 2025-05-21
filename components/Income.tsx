@@ -13,25 +13,11 @@ export default function Income() {
   const [incomes, setIncomes] = useState<Income[]>([
     {
       id: "1",
-      amount: 2500,
+      amount: 500,
       date: new Date("2023-05-15"),
       source: "Salary",
       description: "Monthly salary payment",
-    },
-    // {
-    //   id: "2",
-    //   amount: 500,
-    //   date: new Date("2023-05-10"),
-    //   source: "Freelance",
-    //   description: "Website development project",
-    // },
-    // {
-    //   id: "3",
-    //   amount: 100,
-    //   date: new Date("2023-05-05"),
-    //   source: "Dividends",
-    //   description: "Stock dividends",
-    // },
+    }
   ])
 
   const [isFormOpen, setIsFormOpen] = useState(false)
