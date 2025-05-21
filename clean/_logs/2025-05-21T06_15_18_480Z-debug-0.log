@@ -1,0 +1,23 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Users\hp\AppData\Roaming\npm\node_modules\npm\bin\npm-cli.js
+1 info using npm@11.4.0
+2 info using node@v22.11.0
+3 silly config load:file:C:\Users\hp\AppData\Roaming\npm\node_modules\npm\npmrc
+4 silly config load:file:C:\Users\hp\OneDrive - Nigerian National Petroleum Company Limited\Documents\eta_project\.npmrc
+5 silly config load:file:C:\Users\hp\.npmrc
+6 silly config load:file:C:\Users\hp\AppData\Roaming\npm\etc\npmrc
+7 verbose title npm exec shadcn@latest add chart
+8 verbose argv "exec" "--" "shadcn@latest" "add" "chart"
+9 verbose logfile logs-max:10 dir:C:\Users\hp\OneDrive - Nigerian National Petroleum Company Limited\Documents\eta_project\clean\_logs\2025-05-21T06_15_18_480Z-
+10 verbose logfile C:\Users\hp\OneDrive - Nigerian National Petroleum Company Limited\Documents\eta_project\clean\_logs\2025-05-21T06_15_18_480Z-debug-0.log
+11 silly logfile start cleaning logs, removing 1 files
+12 silly logfile done cleaning log files
+13 silly packumentCache heap:2197815296 maxSize:549453824 maxEntrySize:274726912
+14 http fetch GET 200 https://registry.npmjs.org/shadcn 948ms (cache miss)
+15 silly packumentCache heap:2197815296 maxSize:549453824 maxEntrySize:274726912
+16 silly packumentCache heap:2197815296 maxSize:549453824 maxEntrySize:274726912
+17 verbose cwd C:\Users\hp\OneDrive - Nigerian National Petroleum Company Limited\Documents\eta_project
+18 verbose os Windows_NT 10.0.19045
+19 verbose node v22.11.0
+20 verbose npm  v11.4.0
+21 verbose exit 0
+22 info ok
