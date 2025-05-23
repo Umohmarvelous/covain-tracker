@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { PlusCircle, Wallet } from "lucide-react"
+import { PlusIcon, Wallet } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { IncomeForm } from "@/components/income-form"
@@ -50,19 +50,15 @@ export default function Income() {
   const totalIncome = incomes.reduce((sum, income) => sum + income.amount, 0)
 
   return (
-    <div className="container mx-auto py-6 space-y-8">
+    <div className="container px-10 mx-auto py-10 space-y-8">
       <div className="flex justify-between items-center">
-        <div>
-          <h1 className="text-3xl font-bold tracking-tight">Track Income</h1>
-          <p className="text-muted-foreground">Manage and track your income sources</p>
-        </div>
         <Button
           onClick={() => {
             setEditingIncome(null)
             setIsFormOpen(!isFormOpen)
           }}
         >
-          <PlusCircle className="mr-2 h-4 w-4" />
+          <PlusIcon className=" h-10 w-10" />
           Add Income
         </Button>
       </div>
@@ -76,14 +72,14 @@ export default function Income() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            {/* <IncomeForm
+            <IncomeForm
               onSubmit={editingIncome ? updateIncome : addIncome}
               initialData={editingIncome}
               onCancel={() => {
                 setIsFormOpen(false)
                 setEditingIncome(null)
               }}
-            /> */}
+            />
           </CardContent>
         </Card>
       )}

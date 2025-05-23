@@ -12,7 +12,7 @@ import { BarChart } from "@/components/bar-chart"
 import { LineChart } from "@/components/line-chart"
 import { DonutChart } from "@/components/donut-chart"
 import React from 'react'
-import '../app/globals.css'
+// import '../app/globals.css'
 
 
 const Dashboard = () => {
