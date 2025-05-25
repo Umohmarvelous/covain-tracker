@@ -6,45 +6,46 @@ import { AnimateOnScroll } from "@/components/animate-on-scroll"
 import { CounterAnimation } from "@/components/counter-animation"
 import Image from "next/image"
 
-
 export default function CoverPage() {
 
     return (
         <div className="flex min-h-screen flex-col">
-            <header className="px-20 sticky top-0 z-50 w-full bg-black">
-                <div className="container flex h-16 items-center justify-between">
-                    <div className="flex items-center gap-2">
-                        <div className="h-8 w-8 rounded-full bg-emerald-500"></div>
-                        <span className="text-lg font-medium text-white">Covain Finance</span>
+            {/* <div style={{ backgroundImage: "url(......./../../assets/bgCover01.jpeg)" }}> */}
+                {/* <div className="bg-[url(../../../assets/bgCover01.jpeg)] ..."> */}
+                {/* <Image source={require('@/assets/bgCover01.jpeg')} /> */}
+                <header className="px-20 sticky top-0 z-50 w-full bg-black">
+                    <div className="container flex h-16 items-center justify-between">
+                        <div className="flex items-center gap-2">
+                            <div className="h-8 w-8 rounded-full bg-emerald-500"></div>
+                            <span className="text-lg font-medium text-white">Covain Finance</span>
+                        </div>
+                        <nav className="hidden md:flex items-center gap-6">
+                            <Link href="/customPage/layout" className="text-sm font-medium text-gray-300 hover:text-emerald-500">
+                                Features
+                            </Link>
+                            <Link href="#" className="text-sm font-medium text-gray-300 hover:text-emerald-500">
+                                Pricing
+                            </Link>
+                            <Link href="#" className="text-sm font-medium text-gray-300 hover:text-emerald-500">
+                                About
+                            </Link>
+                            <Link href="#" className="text-sm font-medium text-gray-300 hover:text-emerald-500">
+                                Contact
+                            </Link>
+                            
+                            <Link href="#" className="text-sm font-medium text-gray-300 hover:text-emerald-500">
+                                Help
+                            </Link>
+                        </nav>
+                        <div className="flex items-center gap-4">
+                            <Link href="#" className="hidden md:block text-sm font-medium text-gray-600 hover:text-gray-900">
+                                Log in
+                            </Link>
+                            <Button className="rounded-full bg-emerald-500 hover:bg-emerald-600">Sign up</Button>
+                        </div>
                     </div>
-                    <nav className="hidden md:flex items-center gap-6">
-                        <Link href="/customPage/layout" className="text-sm font-medium text-gray-300 hover:text-emerald-500">
-                            Features
-                        </Link>
-                        <Link href="#" className="text-sm font-medium text-gray-300 hover:text-emerald-500">
-                            Pricing
-                        </Link>
-                        <Link href="#" className="text-sm font-medium text-gray-300 hover:text-emerald-500">
-                            About
-                        </Link>
-                        <Link href="#" className="text-sm font-medium text-gray-300 hover:text-emerald-500">
-                            Contact
-                        </Link>
-                        <Link href="#" className="text-sm font-medium text-gray-300 hover:text-emerald-500">
-                            Blog
-                        </Link>
-                        <Link href="#" className="text-sm font-medium text-gray-300 hover:text-emerald-500">
-                            Help
-                        </Link>
-                    </nav>
-                    <div className="flex items-center gap-4">
-                        <Link href="#" className="hidden md:block text-sm font-medium text-gray-600 hover:text-gray-900">
-                            Log in
-                        </Link>
-                        <Button className="rounded-full bg-emerald-500 hover:bg-emerald-600">Sign up</Button>
-                    </div>
-                </div>
-            </header>
+                </header>
+            {/* </div> */}
             <main className="flex-1">
 
                 <section className="px-20 relative overflow-hidden bg-gradient-to-b from-white to-black py-20">
@@ -57,13 +58,13 @@ export default function CoverPage() {
                             <div className="flex gap-8 text-lg">
                                 <div>
                                     <span className="block text-3xl font-bold text-emerald-500">
-                                        <CounterAnimation end={25} suffix="%" />
+                                        <CounterAnimation end={55} suffix="%" />
                                     </span>
                                     <span className="text-gray-200">Save more</span>
                                 </div>
                                 <div>
                                     <span className="block text-3xl font-bold text-emerald-500">
-                                        <CounterAnimation end={22} suffix="%" />
+                                        <CounterAnimation end={62} suffix="%" />
                                     </span>
                                     <span className="text-gray-200">Grow faster</span>
                                 </div>
@@ -275,6 +276,6 @@ export default function CoverPage() {
                     </div>
                 </div>
             </footer>
-        </div>
+        </div >
     )
 }
