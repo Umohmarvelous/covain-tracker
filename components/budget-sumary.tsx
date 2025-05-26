@@ -21,7 +21,7 @@ export default function BudgetSummary() {
     const currentMonthSpending = monthlySpending[currentMonth] || 0
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5  gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
             <Card>
                 <CardHeader className="flex flex-row items-center justify-between pb-2">
                     <CardTitle className="text-sm font-medium">Total Balance</CardTitle>
@@ -29,7 +29,7 @@ export default function BudgetSummary() {
                 </CardHeader>
                 <CardContent>
                     <div className={`text-2xl font-bold ${totalBudget >= 0 ? "text-green-600" : "text-red-600"}`}>
-                        ₦{Math.abs(totalBudget).toFixed(2)}
+                        ${Math.abs(totalBudget).toFixed(2)}
                     </div>
                     <p className="text-xs text-muted-foreground">{totalBudget >= 0 ? "Positive balance" : "Negative balance"}</p>
                 </CardContent>
@@ -41,7 +41,7 @@ export default function BudgetSummary() {
                     <ArrowUpIcon className="h-4 w-4 text-green-500" />
                 </CardHeader>
                 <CardContent>
-                    <div className="text-2xl font-bold text-green-600 flex flex-wrap">₦{totalIncome.toFixed(2)}</div>
+                    <div className="text-2xl font-bold text-green-600">${totalIncome.toFixed(2)}</div>
                     <p className="text-xs text-muted-foreground">All time income</p>
                 </CardContent>
             </Card>
@@ -52,13 +52,13 @@ export default function BudgetSummary() {
                     <ArrowDownIcon className="h-4 w-4 text-red-500" />
                 </CardHeader>
                 <CardContent>
-                    <div className="text-2xl font-bold text-red-600">₦{totalExpenses.toFixed(2)}</div>
+                    <div className="text-2xl font-bold text-red-600">${totalExpenses.toFixed(2)}</div>
                     <p className="text-xs text-muted-foreground">All time expenses</p>
                 </CardContent>
             </Card>
 
             <Card>
-                <CardHeader className="flex flex-row items-center justify-between pb-2 ">
+                <CardHeader className="flex flex-row items-center justify-between pb-2">
                     <CardTitle className="text-sm font-medium">
                         {frequentCategory ? "Top Category" : "Monthly Spending"}
                     </CardTitle>
@@ -76,7 +76,7 @@ export default function BudgetSummary() {
                         </>
                     ) : (
                         <>
-                            <div className="text-2xl font-bold text-blue-600">₦{currentMonthSpending.toFixed(2)}</div>
+                            <div className="text-2xl font-bold text-blue-600">${currentMonthSpending.toFixed(2)}</div>
                             <p className="text-xs text-muted-foreground">Current month expenses</p>
                         </>
                     )}

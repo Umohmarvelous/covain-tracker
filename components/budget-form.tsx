@@ -2,8 +2,8 @@
 
 import type React from "react"
 
-import { useState } from "react"
-import { useBudget } from "@/components/budget-provider"
+import { useEffect, useState } from "react"
+import { useBudget, type BudgetEntry } from "@/components/budget-provider"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -30,8 +30,15 @@ const CATEGORIES = [
     "Other",
 ]
 
-export default function BudgetForm({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
-    const { addBudget } = useBudget()
+interface BudgetFormProps {
+    isOpen: boolean
+    onClose: () => void
+    editMode?: boolean
+    budgetToEdit?: BudgetEntry
+}
+
+export default function BudgetForm({ isOpen, onClose, editMode = false, budgetToEdit }: BudgetFormProps) {
+    const { addBudget, editBudget } = useBudget()
     const [formData, setFormData] = useState({
         amount: "",
         category: "",
@@ -40,6 +47,28 @@ export default function BudgetForm({ isOpen, onClose }: { isOpen: boolean; onClo
         type: "expense" as "income" | "expense",
     })
 
+    // When in edit mode and budgetToEdit changes, update the form data
+    useEffect(() => {
+        if (editMode && budgetToEdit) {
+            setFormData({
+                amount: budgetToEdit.amount.toString(),
+                category: budgetToEdit.category,
+                description: budgetToEdit.description,
+                date: budgetToEdit.date,
+                type: budgetToEdit.type,
+            })
+        } else if (!editMode) {
+            // Reset form when opening in create mode
+            setFormData({
+                amount: "",
+                category: "",
+                description: "",
+                date: new Date().toISOString().split("T")[0],
+                type: "expense",
+            })
+        }
+    }, [editMode, budgetToEdit, isOpen])
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
 
@@ -47,13 +76,19 @@ export default function BudgetForm({ isOpen, onClose }: { isOpen: boolean; onClo
             return
         }
 
-        addBudget({
+        const budgetData = {
             amount: Number.parseFloat(formData.amount),
             category: formData.category,
             description: formData.description,
             date: formData.date,
             type: formData.type,
-        })
+        }
+
+        if (editMode && budgetToEdit) {
+            editBudget(budgetToEdit.id, budgetData)
+        } else {
+            addBudget(budgetData)
+        }
 
         // Reset form and close modal
         setFormData({
@@ -71,7 +106,7 @@ export default function BudgetForm({ isOpen, onClose }: { isOpen: boolean; onClo
         <Dialog open={isOpen} onOpenChange={onClose}>
             <DialogContent className="sm:max-w-[500px]">
                 <DialogHeader>
-                    <DialogTitle>Create Budget Entry</DialogTitle>
+                    <DialogTitle>{editMode ? "Edit Budget Entry" : "Create Budget Entry"}</DialogTitle>
                 </DialogHeader>
                 <form onSubmit={handleSubmit} className="space-y-4 py-4">
                     <div className="space-y-2">
@@ -98,7 +133,7 @@ export default function BudgetForm({ isOpen, onClose }: { isOpen: boolean; onClo
                     </div>
 
                     <div className="space-y-2">
-                        <Label htmlFor="amount">Amount (₦)</Label>
+                        <Label htmlFor="amount">Amount ($)</Label>
                         <Input
                             id="amount"
                             type="number"
@@ -157,7 +192,7 @@ export default function BudgetForm({ isOpen, onClose }: { isOpen: boolean; onClo
                         <Button type="button" variant="outline" onClick={onClose}>
                             Cancel
                         </Button>
-                        <Button type="submit">Submit</Button>
+                        <Button type="submit">{editMode ? "Save Changes" : "Submit"}</Button>
                     </DialogFooter>
                 </form>
             </DialogContent>

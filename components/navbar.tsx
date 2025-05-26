@@ -14,50 +14,39 @@ import { ChevronDown } from "lucide-react";
 const Navbar = () => {
     const pathname = usePathname()
 
-    // function activeClicks() {
-    //     if (active === false) {
-    //         setActive(true)
-    //     } else setActive(false)
-
-
-    // }
-
-    // Array of Navigaion links
     const navLinks = [
         {
             name: "Dashboard",
             icon: HomeIcon,
             active: true,
-            path: "/Dashboard",
+            path: "/customPage/Dashboard",
         },
         {
             name: "Income",
             icon: DocumentTextIcon,
             active: false,
-            path: "/Income"
+            path: "/customPage/Income"
         },
         {
             name: "Budget",
             icon: CalendarDaysIcon,
             active: false,
-            path: "/Budget",
+            path: "/customPage/Budget",
         },
     ];
 
     return (
         <div className="flex flex-col justify-between self-center h-full pr-7 gap-10 minH-auto w-45">
-            <div className="p-10">
-                <div className="rounded-full bg-[#c5edfd] flex items-center justify-center">
-                    {/* <img src={} className="w-[60%] m-3" /> */}
+            <div className="p-10 pt-0 pl-7">
+                <div className="h-8 w-8 ml-5 mt-6 rounded-full flex flex-row items-start justify-center">
+                    <p className="bg-emerald-100 rounded-3xl px-2 py-1 text-2xl font-bold text-emerald-400">C.</p>
+                    <div>
+                        <h3 className="text-sm font-normal text-gray-400 pl-1">Covain </h3>
+                        <h6 className="text-sm font-normal text-gray-400 pl-1">DashBoard</h6>
+                    </div>
                 </div>
-                <span className=""
-                    style={{
-                        color: 'black',
-                    }}>
-                    Pony App
-                </span>
             </div>
-            <nav className="gap-2 w-auto h-full flex flex-col items-start justify-center pt-25">
+            <nav className="gap-2 w-auto h-full flex flex-col items-start justify-center ">
                 {/* <div className="text-lg font-bold border-2 ">sdfghjkl</div> */}
                 {navLinks.map((link, index) => {
                     const isActive = pathname === link.path
@@ -69,7 +58,7 @@ const Navbar = () => {
                                 href={link.path}
                                 className={`${isActive
                                     ? 'text-emerald-400 font-medium'
-                                    : 'text-gray-400 hover:text-gray-600 flex flex-row items-center justify-center  gap-2'
+                                    : 'text-gray-700 hover:text-emerald-400 flex flex-row items-center justify-center  gap-2'
                                     } transition-colors flex flex-row items-center justify-center gap-2`}>
                                 <link.icon className="w-5 h-5" />
                                 {link.name}
@@ -99,7 +88,7 @@ const Navbar = () => {
                     </a>
                 </div>
 
-                <div className="border-t border-gray-300 py-2 px-2">
+                {/* <div className="border-t border-gray-300 py-2 px-2">
                     <div className="flex items-center gap-3">
                         <Avatar className="w-10 h-10 border">
                             <AvatarImage src="/placeholder.svg?height=40&width=40" alt="Chris Flores" />
@@ -111,7 +100,7 @@ const Navbar = () => {
                         </div>
                         <ChevronDown className="w-4 h-4 text-gray-400" />
                     </div>
-                </div>
+                </div> */}
             </div>
 
         </div>

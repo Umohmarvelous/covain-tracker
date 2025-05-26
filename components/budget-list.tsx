@@ -1,12 +1,31 @@
 "use client"
 
-import { useMemo } from "react"
-import { useBudget } from "@/components/budget-provider"
+// Import the necessary components and hooks
+import { useMemo, useState } from "react"
+import { useBudget, type BudgetEntry } from "@/components/budget-provider"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowDownIcon, ArrowUpIcon } from "lucide-react"
+import { ArrowDownIcon, ArrowUpIcon, PencilIcon, TrashIcon } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import BudgetForm from "@/components/budget-form"
+// import DeleteConfirmation from "@/components/delete-confirmation"
 
 export default function BudgetList() {
   const { budgets, selectedDate } = useBudget()
+  const [editModalOpen, setEditModalOpen] = useState(false)
+  const [deleteDialogOpen, setDeleteDialogOpen] = useState(false)
+  const [selectedBudget, setSelectedBudget] = useState<BudgetEntry | undefined>(undefined)
+
+  // Handle edit button click
+  const handleEdit = (budget: BudgetEntry) => {
+    setSelectedBudget(budget)
+    setEditModalOpen(true)
+  }
+
+  // Handle delete button click
+  const handleDelete = (budget: BudgetEntry) => {
+    setSelectedBudget(budget)
+    setDeleteDialogOpen(true)
+  }
 
   // Filter budgets for the selected month
   const filteredBudgets = useMemo(() => {
@@ -30,7 +49,7 @@ export default function BudgetList() {
   }
 
   return (
-    <Card className="h-auto">
+    <Card className="h-full">
       <CardHeader className="pb-2">
         <CardTitle className="text-lg font-medium">
           {selectedDate.toLocaleString("default", { month: "long", year: "numeric" })} Entries
@@ -59,13 +78,58 @@ export default function BudgetList() {
                     <p className="text-xs text-muted-foreground mt-1">{formatDate(budget.date)}</p>
                   </div>
                 </div>
-                <div className={`font-semibold ${budget.type === "income" ? "text-green-600" : "text-red-600"}`}>
-                  {budget.type === "income" ? "+" : "-"}₦{budget.amount.toFixed(2)}
+                <div className="flex flex-col items-end gap-2">
+                  <div className={`font-semibold ${budget.type === "income" ? "text-green-600" : "text-red-600"}`}>
+                    {budget.type === "income" ? "+" : "-"}${budget.amount.toFixed(2)}
+                  </div>
+                  <div className="flex gap-1">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="h-7 w-7"
+                      onClick={() => handleEdit(budget)}
+                      title="Edit"
+                    >
+                      <PencilIcon className="h-4 w-4" />
+                      <span className="sr-only">Edit</span>
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="h-7 w-7 text-red-500 hover:text-red-600 hover:bg-red-50"
+                      onClick={() => handleDelete(budget)}
+                      title="Delete"
+                    >
+                      <TrashIcon className="h-4 w-4" />
+                      <span className="sr-only">Delete</span>
+                    </Button>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         )}
+
+        {/* Edit Modal */}
+        <BudgetForm
+          isOpen={editModalOpen}
+          onClose={() => {
+            setEditModalOpen(false)
+            setSelectedBudget(undefined)
+          }}
+          editMode={true}
+          budgetToEdit={selectedBudget}
+        />
+
+        {/* Delete Confirmation Dialog */}
+        {/* <DeleteConfirmation
+          isOpen={deleteDialogOpen}
+          onClose={() => {
+            setDeleteDialogOpen(false)
+            setSelectedBudget(undefined)
+          }}
+          budgetToDelete={selectedBudget}
+        /> */}
       </CardContent>
     </Card>
   )

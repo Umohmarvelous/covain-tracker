@@ -6,13 +6,8 @@ export default function HomeLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en"
-      style={{
-        backgroundColor: 'white'
-      }}>
-      <body>
-        <main>{children}</main>
-      </body>
-    </html>
+    <div>
+      {children}
+    </div>
   )
 }

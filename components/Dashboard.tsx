@@ -17,11 +17,11 @@ import React from 'react'
 
 const Dashboard = () => {
   return (
-    <div className="h-auto">
+    <div className="h-auto p-10">
 
       <main className="pt-2 gap-2 flex flex-col">
         {/* Summary Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-10">
           {/* Total Income */}
           <Card>
             <CardHeader className="flex flex-row items-center justify-between pb-2">
@@ -71,23 +71,6 @@ const Dashboard = () => {
               <div className="flex items-center mt-2">
                 <ArrowDownRight className="w-4 h-4 mr-1 text-red-500" />
                 <span className="text-xs font-medium text-red-500">1% vs last 30 days</span>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Most Spending */}
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium text-gray-500">MOST SPENDING</CardTitle>
-              <MoreHorizontal className="w-5 h-5 text-gray-400" />
-            </CardHeader>
-            <CardContent>
-              <div className="flex items-baseline">
-                <Home className="w-6 h-6 mr-1 text-emerald-500" />
-                <span className="text-2xl font-bold">House Rent</span>
-              </div>
-              <div className="mt-2">
-                <span className="text-sm text-gray-500">₦1150</span>
               </div>
             </CardContent>
           </Card>

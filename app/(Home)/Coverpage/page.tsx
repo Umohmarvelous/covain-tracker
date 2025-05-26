@@ -10,52 +10,51 @@ export default function CoverPage() {
 
     return (
         <div className="flex min-h-screen flex-col">
-            {/* <div style={{ backgroundImage: "url(......./../../assets/bgCover01.jpeg)" }}> */}
-                {/* <div className="bg-[url(../../../assets/bgCover01.jpeg)] ..."> */}
-                {/* <Image source={require('@/assets/bgCover01.jpeg')} /> */}
-                <header className="px-20 sticky top-0 z-50 w-full bg-black">
-                    <div className="container flex h-16 items-center justify-between">
-                        <div className="flex items-center gap-2">
-                            <div className="h-8 w-8 rounded-full bg-emerald-500"></div>
-                            <span className="text-lg font-medium text-white">Covain Finance</span>
+            <Image src={require('@/assets/images/bgCover03.jpeg')} alt="Background-image"
+                className="bg-back "
+            />
+            <header className="hide-top px-10 sticky top-0 z-100 w-full ">
+                <div className="container flex h-16 items-center justify-between pt-15">
+                    <div className="flex items-center gap-2 ">
+                        <div className="h-8 w-8 rounded-full  flex items-center justify-center">
+                            <p className="text-2xl font-bold text-emerald-400">C.</p>
                         </div>
-                        <nav className="hidden md:flex items-center gap-6">
-                            <Link href="/customPage/layout" className="text-sm font-medium text-gray-300 hover:text-emerald-500">
-                                Features
-                            </Link>
-                            <Link href="#" className="text-sm font-medium text-gray-300 hover:text-emerald-500">
-                                Pricing
-                            </Link>
-                            <Link href="#" className="text-sm font-medium text-gray-300 hover:text-emerald-500">
-                                About
-                            </Link>
-                            <Link href="#" className="text-sm font-medium text-gray-300 hover:text-emerald-500">
-                                Contact
-                            </Link>
-                            
-                            <Link href="#" className="text-sm font-medium text-gray-300 hover:text-emerald-500">
-                                Help
-                            </Link>
-                        </nav>
-                        <div className="flex items-center gap-4">
-                            <Link href="#" className="hidden md:block text-sm font-medium text-gray-600 hover:text-gray-900">
-                                Log in
-                            </Link>
-                            <Button className="rounded-full bg-emerald-500 hover:bg-emerald-600">Sign up</Button>
-                        </div>
+                        {/* <span className="text-lg font-medium text-white">
+                            Covain Finance
+                        </span> */}
                     </div>
-                </header>
-            {/* </div> */}
-            <main className="flex-1">
+                    <nav className="hidden md:flex items-center gap-6 ml-25">
+                        <Link href="#section1" className="text-sm font-medium text-gray-300 hover:text-emerald-500">
+                            Features
+                        </Link>
+                        <Link href="#section2" className="text-sm font-medium text-gray-300 hover:text-emerald-500">
+                            Pricing
+                        </Link>
+                        <Link href="#section3" className="text-sm font-medium text-gray-300 hover:text-emerald-500">
+                            About
+                        </Link>
+                        <Link href="#section4" className="text-sm font-medium text-gray-300 hover:text-emerald-500">
+                            Contact
+                        </Link>
+                    </nav>
+                    <div>
+                        <Link href="/customPage/Dashboard" className=" bg-emerald-300 p-3 text-sm text-black hover:text-white">
+                            Go to Dashboard
+                        </Link>
 
-                <section className="px-20 relative overflow-hidden bg-gradient-to-b from-white to-black py-20">
-                    <div className="container flex flex-col lg:flex-row items-center gap-12">
+                    </div>
+
+                </div>
+            </header>
+            <main className="flex flex-col">
+                <section className="h-screen hide relative overflow-hidden py-40">
+                    <div className="container flex flex-col self-center justify-center text-center lg:flex-row gap-12">
                         <AnimateOnScroll animation="fadeInLeft" className="max-w-xl space-y-6">
-                            <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+                            <h1 className="text-4xl md:text-5xl font-bold leading-tight text-white">
                                 Your personal finances <br />
                                 made easier
                             </h1>
-                            <div className="flex gap-8 text-lg">
+                            <div className="flex gap-8 text-lg text-center flex justify-center">
                                 <div>
                                     <span className="block text-3xl font-bold text-emerald-500">
                                         <CounterAnimation end={55} suffix="%" />
@@ -69,34 +68,17 @@ export default function CoverPage() {
                                     <span className="text-gray-200">Grow faster</span>
                                 </div>
                             </div>
-                            <div className="flex flex-wrap gap-4">
-                                <Button
-                                    className="bg-emerald-500 hover:bg-emerald-600 px-6">Get started</Button>
-                                <Button variant="outline" className="">
-                                    Learn more
-                                </Button>
+                            <div className="flex flex-wrap gap-4 justify-center">
+
+                                <Link
+                                    className="bg-emerald-500 hover:bg-emerald-300 px-20 py-5"
+                                    href="/customPage/Dashboard">Get started</Link>
                             </div>
-                            <div className="flex gap-4 text-sm text-gray-300">
-                                <span>iOS</span>
-                                <span>Android</span>
-                                <span>Web</span>
-                                <span>Desktop</span>
-                            </div>
-                        </AnimateOnScroll>
-                        <AnimateOnScroll animation="fadeInRight" className="relative w-full max-w-md lg:max-w-lg">
-                            <Image
-                                src="https://www.pexels.com/search/money%20management/"
-                                alt="Mobile app interface showing financial dashboard"
-                                width={500}
-                                height={600}
-                                className="relative z-10"
-                                priority
-                            />
                         </AnimateOnScroll>
                     </div>
                 </section>
 
-                <section className="px-20 py-20 bg-black">
+                <section id="section1" className="px-20 py-40 pb-50 bg-black">
                     <AnimateOnScroll animation="fadeInUp" className="container text-center mb-12">
                         <h2 className="text-3xl text-white font-bold mb-4">What you discover on everyday basis</h2>
                     </AnimateOnScroll>
@@ -125,7 +107,7 @@ export default function CoverPage() {
                     </AnimateOnScroll>
                 </section>
 
-                <section className="px-20 py-20 bg-gray-100">
+                <section id="section2" className="px-20 py-40 bg-gray-100">
                     <div className="container">
                         <div className="flex flex-col lg:flex-row items-center gap-12">
                             <AnimateOnScroll animation="fadeInLeft" className="max-w-xl space-y-6">
@@ -186,16 +168,17 @@ export default function CoverPage() {
                     </div>
                 </section>
 
-                <section className=" px-20 py-20 bg-gray-100">
+                <section id="section3" className=" px-20 pb-30 py-20 bg-gray-100">
                     <div className="container">
                         <div className="flex flex-col-reverse lg:flex-row items-center gap-12">
                             <AnimateOnScroll animation="fadeInLeft" className="relative w-full max-w-md">
                                 <Image
-                                    src="/placeholder.svg?height=400&width=400"
-                                    alt="App interface showing financial controls"
-                                    width={400}
-                                    height={400}
-                                    className="rounded-xl"
+                                    src={require('@/assets/images/bgCover02.jpeg')}
+                                    alt="Mobile app interface showing financial dashboard"
+                                    width={500}
+                                    height={600}
+                                    className="relative z-10 rounded-3xl"
+                                    priority
                                 />
                             </AnimateOnScroll>
                             <AnimateOnScroll animation="fadeInRight" className="max-w-xl space-y-6">
@@ -210,12 +193,16 @@ export default function CoverPage() {
                     </div>
                 </section>
             </main>
-            <footer className="px-20 border-t bg-black text-white pt-10 pb-5">
+            <footer id="section4" className="px-20 border-t bg-black text-white pt-10 pb-5">
                 <div className="container">
                     <div className="flex flex-col md:flex-row justify-between gap-8">
                         <div className="space-y-4 md:w-1/3  text-white">
                             <div className="flex items-center gap-2">
-                                <div className="h-8 w-8 rounded-full bg-emerald-500"></div>
+                                <div className="h-8 w-8 rounded-full bg-emerald-400">
+                                    <div className="h-8 w-8 rounded-full  flex items-center justify-center">
+                                        <p className="text-2xl font-bold text-black">C.</p>
+                                    </div>
+                                </div>
                                 <span className="text-lg font-medium">Finance</span>
                             </div>
                             <p className="text-gray-400">Making personal finance management simple and effective for everyone.</p>
@@ -272,7 +259,7 @@ export default function CoverPage() {
                         </div>
                     </div>
                     <div className="mt-12  pt-8 text-center text-gray-400">
-                        <p>© 2025 Covain Finance App. All rights reserved.</p>
+                        <p>© 2025 Covain Finance. All rights reserved.</p>
                     </div>
                 </div>
             </footer>

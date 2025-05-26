@@ -15,7 +15,7 @@ const eslintConfig = [
       'prettier'
     ],
     "rules": {
-      "@next/next/no-img-element": "off",
+      // "@next/next/no-img-element": "off",
       "react/no-unescaped-entities": 0,
       'react/no-unescaped-entities': 'off',
       "no-unused-vars": "off",

@@ -16,6 +16,8 @@ export type BudgetEntry = {
 type BudgetContextType = {
     budgets: BudgetEntry[]
     addBudget: (budget: Omit<BudgetEntry, "id">) => void
+    editBudget: (id: string, budget: Omit<BudgetEntry, "id">) => void
+    deleteBudget: (id: string) => void
     totalBudget: number
     monthlySpending: Record<string, number>
     frequentCategory: string | null
@@ -81,11 +83,30 @@ export function BudgetProvider({ children }: { children: React.ReactNode }) {
         setBudgets([...budgets, newBudget])
     }
 
+    const editBudget = (id: string, updatedBudget: Omit<BudgetEntry, "id">) => {
+        setBudgets(
+            budgets.map((budget) =>
+                budget.id === id
+                    ? {
+                        ...updatedBudget,
+                        id,
+                    }
+                    : budget,
+            ),
+        )
+    }
+
+    const deleteBudget = (id: string) => {
+        setBudgets(budgets.filter((budget) => budget.id !== id))
+    }
+
     return (
         <BudgetContext.Provider
             value={{
                 budgets,
                 addBudget,
+                editBudget,
+                deleteBudget,
                 totalBudget,
                 monthlySpending,
                 frequentCategory,

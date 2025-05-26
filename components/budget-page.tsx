@@ -18,7 +18,6 @@ export default function BudgetPage() {
   return (
     <div className="container mx-auto py-8 px-4">
       <div className="flex flex-col md:flex-row justify-between items-center mb-8">
-        {/* <h1 className="text-3xl font-bold text-gray-800 mb-4 md:mb-0">Budget Tracker</h1> */}
         <div className="flex flex-col sm:flex-row gap-3">
           <Button asChild variant="outline">
             <Link href="/dashboard" className="flex items-center gap-2">
@@ -28,7 +27,7 @@ export default function BudgetPage() {
           </Button>
           <Button onClick={() => setIsModalOpen(true)} className="flex items-center gap-2">
             <PlusIcon size={16} />
-            Create Budget
+            Create Budget Entry
           </Button>
         </div>
       </div>
@@ -39,10 +38,10 @@ export default function BudgetPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2 space-y-6">
             <BudgetSummary />
-            <BudgetList />
+            <BudgetCalendar />
           </div>
           <div className="lg:col-span-1">
-            <BudgetCalendar />
+            <BudgetList />
           </div>
         </div>
       )}

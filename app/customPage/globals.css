@@ -129,13 +129,37 @@ body {
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
 }
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
   }
+}
+.bg-back{
+  z-index: -100;
+  position: absolute;
+  background-size: cover;
+  color: white;
+  background:rgb(0, 0, 0);
+  width: 100%;
+}
+
+.hide{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:rgb(0, 0, 0);
+  /* z-index:-10; */
+  background: linear-gradient(180deg,rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 1) 100%);
+}
+.hide-top{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* opacity: .5; */
+  /* background: linear-gradient(180deg,rgba(255, 255, 255, 0.11) 10%, rgba(0, 0, 0, 1) 100%); */
+  background: rgba(255, 255, 255, 0);
 }
