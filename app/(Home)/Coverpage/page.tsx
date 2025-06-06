@@ -148,19 +148,19 @@ export default function CoverPage() {
                                 <div className="grid grid-cols-2 gap-4">
                                     <AnimateOnScroll animation="scale" delay={0.1} className="rounded-xl bg-black p-4 text-white">
                                         <h4 className="text-sm font-medium">Total Balance</h4>
-                                        <p className="text-2xl font-bold">$12,580</p>
+                                        <p className="text-2xl font-bold">₦22,580</p>
                                     </AnimateOnScroll>
                                     <AnimateOnScroll animation="scale" delay={0.2} className="rounded-xl bg-emerald-100 p-4">
                                         <h4 className="text-sm font-medium">Savings</h4>
-                                        <p className="text-2xl font-bold">$4,250</p>
+                                        <p className="text-2xl font-bold">₦4,250</p>
                                     </AnimateOnScroll>
                                     <AnimateOnScroll animation="scale" delay={0.3} className="rounded-xl bg-purple-100 p-4">
                                         <h4 className="text-sm font-medium">Expenses</h4>
-                                        <p className="text-2xl font-bold">$1,180</p>
+                                        <p className="text-2xl font-bold">₦1,180</p>
                                     </AnimateOnScroll>
                                     <AnimateOnScroll animation="scale" delay={0.4} className="rounded-xl bg-pink-100 p-4">
                                         <h4 className="text-sm font-medium">Investments</h4>
-                                        <p className="text-2xl font-bold">$7,150</p>
+                                        <p className="text-2xl font-bold">₦7,150</p>
                                     </AnimateOnScroll>
                                 </div>
                             </AnimateOnScroll>
