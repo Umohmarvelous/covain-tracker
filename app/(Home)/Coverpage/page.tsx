@@ -148,7 +148,7 @@ export default function CoverPage() {
                                 <div className="grid grid-cols-2 gap-4">
                                     <AnimateOnScroll animation="scale" delay={0.1} className="rounded-xl bg-black p-4 text-white">
                                         <h4 className="text-sm font-medium">Total Balance</h4>
-                                        <p className="text-2xl font-bold">₦22,580</p>
+                                        <p className="text-2xl font-bold">₦22,980</p>
                                     </AnimateOnScroll>
                                     <AnimateOnScroll animation="scale" delay={0.2} className="rounded-xl bg-emerald-100 p-4">
                                         <h4 className="text-sm font-medium">Savings</h4>
