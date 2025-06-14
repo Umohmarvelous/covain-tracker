@@ -1,3 +1,5 @@
+
+This project is a Budget Tracker Application, which is a responsive web application that helps users manage their personal or household finances in real time. Built using React.js, the app allows users to add, edit, and categorize income and expenses, giving them a clear overview of their financial habits.
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
