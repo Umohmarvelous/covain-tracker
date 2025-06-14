@@ -1,4 +1,4 @@
-![Image Alt](https://github.com/Umohmarvelous/Transfomer-based-ML-model/blob/56799c0b00bc052635b3f577cab7551419388578/tranformer-ML-model.png)
+![Image Alt](https://github.com/Umohmarvelous/react-expense-tracker/blob/f38667f7c9961f17fef1edba07fcccfce25661d8/eta_landingPage_screenshot.png)
 
  
 Covain is a responsive web application that helps users manage their personal or household finances in real time. Built using React.js, the app allows users to add, edit, and categorize income and expenses, giving them a clear overview of their financial habits.
