@@ -148,8 +148,8 @@ export function IncomeTable({ incomes, onEdit, onDelete }: IncomeTableProps) {
                   <TableCell className="max-w-xs truncate">{income.description}</TableCell>
                   <TableCell className="text-right flex gap-2 justify-end">
                     <Button variant="ghost" size="icon" onClick={() => onEdit(income)} title="Edit">
-                      <Edit2 className="h-4 w-4" />
-                    </Button>
+                          <Edit2 className="h-4 w-4" />
+                        </Button>
                     <Button variant="ghost" size="icon" className="text-red-500 hover:text-red-600" onClick={() => confirmDelete(income.id)} title="Delete">
                       <Trash2 className="h-4 w-4" />
                     </Button>
