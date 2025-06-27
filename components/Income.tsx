@@ -9,6 +9,20 @@ import { IncomeTable } from "@/components/income-table"
 import { IncomeStats } from "@/components/income-stats"
 import type { Income } from "@/types/income"
 
+// Utility function to generate UUID with fallback
+function generateUUID(): string {
+  if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+    return crypto.randomUUID();
+  }
+
+  // Fallback implementation
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    const r = Math.random() * 16 | 0;
+    const v = c === 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
+}
+
 export default function Income() {
   const [incomes, setIncomes] = useState<Income[]>([
     {
@@ -26,7 +40,7 @@ export default function Income() {
   const addIncome = (income: Omit<Income, "id">) => {
     const newIncome = {
       ...income,
-      id: Date.now().toString(),
+      id: generateUUID(),
     }
     setIncomes([...incomes, newIncome])
     setIsFormOpen(false)

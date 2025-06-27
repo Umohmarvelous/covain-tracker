@@ -10,6 +10,7 @@ import BudgetList from "@/components/budget-list"
 import EmptyState from "@/components/empty-state"
 import { Button } from "@/components/ui/button"
 import { PlusIcon, LayoutDashboardIcon } from "lucide-react"
+import BudgetOverviewCharts from "@/components/budget-overview-charts"
 
 export default function BudgetPage() {
   const { budgets } = useBudget()
@@ -37,6 +38,7 @@ export default function BudgetPage() {
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2 space-y-6">
+            <BudgetOverviewCharts />
             <BudgetSummary />
             <BudgetCalendar />
           </div>

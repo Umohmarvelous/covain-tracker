@@ -3,9 +3,16 @@
 import { useBudget } from "@/components/budget-provider"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowDownIcon, ArrowUpIcon, BarChart3Icon, PieChartIcon, TrendingUpIcon } from "lucide-react"
+import { useState, useEffect } from "react"
 
 export default function BudgetSummary() {
     const { totalBudget, monthlySpending, frequentCategory, budgets } = useBudget()
+    const [isClient, setIsClient] = useState(false);
+
+    // Prevent hydration mismatch by only rendering after client-side hydration
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
 
     // Calculate total income and expenses
     const totalIncome = budgets
@@ -17,7 +24,7 @@ export default function BudgetSummary() {
         .reduce((sum, budget) => sum + budget.amount, 0)
 
     // Get current month's spending
-    const currentMonth = new Date().toLocaleString("default", { month: "long", year: "numeric" })
+    const currentMonth = isClient ? new Date().toLocaleString("default", { month: "long", year: "numeric" }) : "Loading..."
     const currentMonthSpending = monthlySpending[currentMonth] || 0
 
     return (

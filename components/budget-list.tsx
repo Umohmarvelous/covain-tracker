@@ -10,7 +10,7 @@ import BudgetForm from "@/components/budget-form"
 // import DeleteConfirmation from "@/components/delete-confirmation"
 
 export default function BudgetList() {
-  const { budgets, selectedDate } = useBudget()
+  const { budgets, selectedDate, deleteBudget, editBudget } = useBudget()
   const [editModalOpen, setEditModalOpen] = useState(false)
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false)
   const [selectedBudget, setSelectedBudget] = useState<BudgetEntry | undefined>(undefined)
@@ -25,6 +25,24 @@ export default function BudgetList() {
   const handleDelete = (budget: BudgetEntry) => {
     setSelectedBudget(budget)
     setDeleteDialogOpen(true)
+  }
+
+  // Confirm delete
+  const confirmDelete = () => {
+    if (selectedBudget) {
+      deleteBudget(selectedBudget.id)
+      setDeleteDialogOpen(false)
+      setSelectedBudget(undefined)
+    }
+  }
+
+  // Handle edit submit
+  const handleEditSubmit = (updated: Omit<BudgetEntry, "id">) => {
+    if (selectedBudget) {
+      editBudget(selectedBudget.id, updated)
+      setEditModalOpen(false)
+      setSelectedBudget(undefined)
+    }
   }
 
   // Filter budgets for the selected month
@@ -119,17 +137,22 @@ export default function BudgetList() {
           }}
           editMode={true}
           budgetToEdit={selectedBudget}
+          onSubmit={handleEditSubmit}
         />
 
         {/* Delete Confirmation Dialog */}
-        {/* <DeleteConfirmation
-          isOpen={deleteDialogOpen}
-          onClose={() => {
-            setDeleteDialogOpen(false)
-            setSelectedBudget(undefined)
-          }}
-          budgetToDelete={selectedBudget}
-        /> */}
+        {deleteDialogOpen && (
+          <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-30">
+            <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-xs">
+              <h2 className="text-lg font-semibold mb-4">Delete Entry?</h2>
+              <p className="mb-6 text-sm text-gray-600">Are you sure you want to delete this entry?</p>
+              <div className="flex justify-end gap-2">
+                <Button variant="outline" onClick={() => setDeleteDialogOpen(false)}>Cancel</Button>
+                <Button variant="destructive" onClick={confirmDelete}>Delete</Button>
+              </div>
+            </div>
+          </div>
+        )}
       </CardContent>
     </Card>
   )

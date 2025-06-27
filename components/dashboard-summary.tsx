@@ -1,12 +1,18 @@
 "use client"
 
-import { useMemo } from "react"
+import { useMemo, useState, useEffect } from "react"
 import { useBudget } from "@/components/budget-provider"
 import { Card, CardContent } from "@/components/ui/card"
 import { ArrowDownIcon, ArrowUpIcon, DollarSignIcon, TrendingUpIcon } from "lucide-react"
 
 export default function DashboardSummary() {
     const { budgets, totalBudget } = useBudget()
+    const [isClient, setIsClient] = useState(false);
+
+    // Prevent hydration mismatch by only rendering after client-side hydration
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
 
     // Calculate total income and expenses
     const totalIncome = useMemo(() => {
@@ -18,8 +24,8 @@ export default function DashboardSummary() {
     }, [budgets])
 
     // Calculate this month's data
-    const currentMonth = new Date().getMonth()
-    const currentYear = new Date().getFullYear()
+    const currentMonth = isClient ? new Date().getMonth() : 0
+    const currentYear = isClient ? new Date().getFullYear() : 2024
 
     const thisMonthIncome = useMemo(() => {
         return budgets

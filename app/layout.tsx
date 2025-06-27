@@ -1,5 +1,5 @@
-
 import "./globals.css";
+import { BudgetProvider } from "@/components/budget-provider";
 
 export default function MainRootLayout({
   children,
@@ -12,7 +12,9 @@ export default function MainRootLayout({
         backgroundColor: 'white'
       }}>
       <body>
-        <main>{children}</main>
+        <BudgetProvider>
+          <main>{children}</main>
+        </BudgetProvider>
       </body>
     </html>
   )

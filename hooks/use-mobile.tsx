@@ -6,8 +6,11 @@ const MOBILE_BREAKPOINT = 768
 
 export function useMobile() {
     const [isMobile, setIsMobile] = useState(false)
+    const [isHydrated, setIsHydrated] = useState(false)
 
     useEffect(() => {
+        setIsHydrated(true)
+
         const checkIfMobile = () => {
             setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
         }
@@ -23,6 +26,11 @@ export function useMobile() {
             window.removeEventListener("resize", checkIfMobile)
         }
     }, [])
+
+    // Return false during SSR to prevent hydration mismatch
+    if (!isHydrated) {
+        return false
+    }
 
     return isMobile
 }

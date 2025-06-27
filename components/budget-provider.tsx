@@ -23,13 +23,29 @@ type BudgetContextType = {
     frequentCategory: string | null
     selectedDate: Date
     setSelectedDate: (date: Date) => void
+    isHydrated: boolean
 }
 
 const BudgetContext = createContext<BudgetContextType | undefined>(undefined)
 
+// Utility function to generate UUID with fallback
+function generateUUID(): string {
+    if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+        return crypto.randomUUID();
+    }
+
+    // Fallback implementation
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        const r = Math.random() * 16 | 0;
+        const v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+}
+
 export function BudgetProvider({ children }: { children: React.ReactNode }) {
     const [budgets, setBudgets] = useState<BudgetEntry[]>([])
     const [selectedDate, setSelectedDate] = useState<Date>(new Date())
+    const [isHydrated, setIsHydrated] = useState(false)
 
     // Load budgets from localStorage on initial render
     useEffect(() => {
@@ -37,12 +53,15 @@ export function BudgetProvider({ children }: { children: React.ReactNode }) {
         if (savedBudgets) {
             setBudgets(JSON.parse(savedBudgets))
         }
+        setIsHydrated(true)
     }, [])
 
     // Save budgets to localStorage whenever they change
     useEffect(() => {
-        localStorage.setItem("budgets", JSON.stringify(budgets))
-    }, [budgets])
+        if (isHydrated) {
+            localStorage.setItem("budgets", JSON.stringify(budgets))
+        }
+    }, [budgets, isHydrated])
 
     // Calculate total budget (income - expenses)
     const totalBudget = budgets.reduce((total, budget) => {
@@ -78,7 +97,7 @@ export function BudgetProvider({ children }: { children: React.ReactNode }) {
     const addBudget = (budget: Omit<BudgetEntry, "id">) => {
         const newBudget = {
             ...budget,
-            id: crypto.randomUUID(),
+            id: generateUUID(),
         }
         setBudgets([...budgets, newBudget])
     }
@@ -112,6 +131,7 @@ export function BudgetProvider({ children }: { children: React.ReactNode }) {
                 frequentCategory,
                 selectedDate,
                 setSelectedDate,
+                isHydrated,
             }}
         >
             {children}

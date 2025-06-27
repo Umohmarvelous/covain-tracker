@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo } from "react"
+import { useMemo, useState, useEffect } from "react"
 import { ArrowUpRight, DollarSign, TrendingUp, Calendar } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import type { Income } from "@/types/income"
@@ -10,11 +10,18 @@ interface IncomeStatsProps {
 }
 
 export function IncomeStats({ incomes }: IncomeStatsProps) {
+  const [isClient, setIsClient] = useState(false);
+
+  // Prevent hydration mismatch by only rendering after client-side hydration
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const stats = useMemo(() => {
     const total = incomes.reduce((sum, income) => sum + income.amount, 0)
 
     // Get current month incomes
-    const now = new Date()
+    const now = isClient ? new Date() : new Date(2024, 0, 1) // Default date for SSR
     const currentMonth = now.getMonth()
     const currentYear = now.getFullYear()
 
@@ -34,7 +41,7 @@ export function IncomeStats({ incomes }: IncomeStatsProps) {
       average,
       count: incomes.length,
     }
-  }, [incomes])
+  }, [incomes, isClient])
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat("en-US", {
